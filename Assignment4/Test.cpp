@@ -35,15 +35,14 @@ void test1(){
 int main() {
   test1();
   BinarySearchTree<BSTNode1<int>, int> tree;
-  DLList<int> list;
   tree.add(15);
   tree.add(14);
   tree.add(13);
   tree.add(17);
   tree.add(18);
   cout << ((tree.getNode(18)->x))<<endl;
-  //list = tree.getLE(17);
-  cout << list.get(1) << endl;
+  DLList<int> list = tree.getLE(17);
+  cout << list.get(3) << endl;
 
 return 0;
 }
