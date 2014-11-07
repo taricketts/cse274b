@@ -14,38 +14,43 @@
 using namespace std;
 using namespace ods;
 
-void test1(){
+void test1() {
 	BinarySearchTree<BSTNode1<int>, int> tree;
-	  tree.add(15);
-	  tree.add(14);
-	  tree.add(13);
-	  tree.add(17);
-	  tree.add(18);
-	  cout <<"Original height function: "<< tree.height() << endl;
-	  cout <<"New height function: "<< tree.height2() << endl;
-	  if(tree.isBalanced() == 1){
-		  cout << "The tree is balanced" << endl;
-	  }
-	  else{
-		  cout << "The tree is not balanced" << endl;
-	  }
+	tree.add(15);
+	tree.add(14);
+	tree.add(13);
+	tree.add(17);
+	tree.add(18);
+	cout << "Original height function: " << tree.height() << endl;
+	cout << "New height function: " << tree.height2() << endl;
+	if (tree.isBalanced() == 1) {
+		cout << "The tree is balanced" << endl;
+	} else {
+		cout << "The tree is not balanced" << endl;
+	}
 }
 
+void test2() {
+	BinarySearchTree<BSTNode1<int>, int> tree;
+	tree.add(15);
+	tree.add(14);
+	tree.add(13);
+	tree.add(17);
+	tree.add(18);
+	cout << "Testing getNode() for value 18: " << ((tree.getNode(18)->x))
+			<< endl;
+	DLList<int> list = tree.getLE(17);
+	cout << "Listing all values from 17 and below in the binary tree: " << endl;
+	for (int i = 0; i < list.size()-1; i++) {
+		cout << list.get(i) << endl;
+	}
+}
 
 int main() {
-  test1();
-  BinarySearchTree<BSTNode1<int>, int> tree;
-  tree.add(15);
-  tree.add(14);
-  tree.add(13);
-  tree.add(17);
-  tree.add(18);
-  cout << ((tree.getNode(18)->x))<<endl;
-  DLList<int> list = tree.getLE(17);
-  cout << list.get(3) << endl;
 
-return 0;
+	test1();
+	test2();
+
+	return 0;
 }
-
-
 
