@@ -133,8 +133,12 @@ int BinaryTree<Node>::size2() {
 			else
 				next = u->parent;
 		} else if (prev == u->left) {
-			if (u->right != nil)
+			if (u->right != nil){
+				if(u == r){
+
+				}
 				next = u->right;
+			}
 			else
 				next = u->parent;
 		} else {
