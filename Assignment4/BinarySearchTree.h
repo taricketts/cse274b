@@ -237,35 +237,35 @@ void BinarySearchTree<Node, T>::clear() {
 	n = 0;
 }
 
-template <class Node, class T> inline
-void BinarySearchTree<Node, T>::inOrder(){
+template<class Node, class T> inline
+void BinarySearchTree<Node, T>::inOrder() {
 
 }
 
-template <class Node, class T> inline
-void BinarySearchTree<Node, T>::preOrder(){
+template<class Node, class T> inline
+void BinarySearchTree<Node, T>::preOrder() {
 
 }
 
-template <class Node, class T> inline
-void BinarySearchTree<Node, T>::postOrder(){
+template<class Node, class T> inline
+void BinarySearchTree<Node, T>::postOrder() {
 
 }
-template <class Node, class T> inline
-Node* BinarySearchTree<Node, T>::getNode(T x){ // Test eventually
+template<class Node, class T> inline Node* BinarySearchTree<Node, T>::getNode(
+		T x) {
 	Node *w = r, *z = nil;
-		while (w != nil) {
-			int comp = compare(x, w->x);
-			if (comp < 0) {
-				z = w;
-				w = w->left;
-			} else if (comp > 0) {
-				w = w->right;
-			} else {
-				return w;
-			}
+	while (w != nil) {
+		int comp = compare(x, w->x);
+		if (comp < 0) {
+			z = w;
+			w = w->left;
+		} else if (comp > 0) {
+			w = w->right;
+		} else {
+			return w;
 		}
-		return z == nil ? nil : z;
+	}
+	return z == nil ? nil : z;
 }
 
 template<class Node, class T> inline DLList<T> BinarySearchTree<Node, T>::getLE(
@@ -281,7 +281,26 @@ template<class Node, class T> inline DLList<T> BinarySearchTree<Node, T>::getLE(
 
 	while (compare(x, u->x) >= 0 && u != nil) {
 		list.add(u->x);
-		if (prev == u->parent) {
+		int n = 0;
+		if (u == r) {
+			n = -1;
+			if (u->right == nil) {
+				return list;
+			} else {
+				u = u->right;
+				prev = u->parent;
+			}
+			if(u->left != nil){
+				while(u->left != nil){
+					u = u->left;
+				}
+				prev = u->parent;
+			} else{
+				if(compare(x, u->x) >= 0){
+					list.add(u->x);
+				}
+			}
+		} else if (prev == u->parent) {
 			if (u->left != nil) {
 				next = u->left;
 			} else if (u->right != nil) {
@@ -299,8 +318,10 @@ template<class Node, class T> inline DLList<T> BinarySearchTree<Node, T>::getLE(
 			next = u->parent;
 		}
 
-		prev = u;
-		u = next;
+		if (n == 0) {
+			prev = u;
+			u = next;
+		}
 
 	}
 

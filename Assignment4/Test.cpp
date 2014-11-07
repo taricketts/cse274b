@@ -41,8 +41,9 @@ int main() {
   tree.add(13);
   tree.add(17);
   tree.add(18);
-  //list = tree.getLE(15);
-  //cout << list.get(0) << endl;
+  cout << ((tree.getNode(18)->x))<<endl;
+  //list = tree.getLE(17);
+  cout << list.get(1) << endl;
 
 return 0;
 }
