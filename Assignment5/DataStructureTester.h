@@ -8,9 +8,16 @@
 #ifndef DATASTRUCTURETESTER_H_
 #define DATASTRUCTURETESTER_H_
 
+#include <ctime>
+#include <iostream>
+#include "List.h"
+
+using namespace std;
+
 template<class T>
 class DataStructureTester<T>{
-
+protected:
+	T list;
 public:
 	int DoSequentialAdd(int start, int end, int step);
 	int DoRandomAdd(int n);
@@ -21,7 +28,8 @@ public:
 };
 
 template<class T>
-DataStructureTester<T>::DataStructureTester(){}
+DataStructureTester<T>::DataStructureTester(){
+}
 
 template<class T>
 DataStructureTester<T>::~DataStructureTester(){}
