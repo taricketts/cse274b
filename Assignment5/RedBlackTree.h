@@ -25,7 +25,7 @@ protected:
 };
 
 template<class Node, class T>
-class RedBlackTree : public BinarySearchTree<Node, T>, List<T> {
+class RedBlackTree : public BinarySearchTree<Node, T>{
 protected:
 	using BinaryTree<Node>::r;
 	using BinaryTree<Node>::nil;
