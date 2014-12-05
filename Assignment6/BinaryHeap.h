@@ -66,7 +66,7 @@ namespace ods {
 		else if (i == 0){
 			return isHeap(left(i)) && isHeap(right(i));
 		}
-		else if (a[parent(i)] < a[i]){
+		else if (a[parent(i)] <= a[i]){
 			return isHeap(left(i)) && isHeap(right(i));
 		}
 		else{
@@ -126,16 +126,9 @@ namespace ods {
 		See if it matters when the size-- of the list is the int i.
 		*/
 		T x = a[i];
-		if (i == size() - 1){
-			a[i] = 0;
-			n--;
-			if (3 * n < a.length) resize();
-		}
-		else{
-			a[i] = a[--n];
-			trickleDown(i);
-			if (3 * n < a.length) resize();
-		}
+		a[i] = a[--n];
+		trickleDown(i);
+		if (3 * n < a.length) resize();
 		return x;
 	}
 

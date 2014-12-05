@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include "BinaryHeap.h"
 #include "utils.h"
 
@@ -9,12 +10,14 @@ int main(string args[]){
 	
 	BinaryHeap<int> b;
 
+	srand(time(0));
 	for (int i = 2; i <= 10; i += 2){
-		b.add(i);
+		
+		b.add(rand() % 10 + 1);
 	}
 
 	cout << "Min Value is: " << b.findMin() << endl;
-	cout << "Removing 2..." << endl;
+	cout << "Removing 0 loc..." << endl;
 
 	b.remove(0);
 
@@ -29,7 +32,7 @@ int main(string args[]){
 
 	cout << b.remove(3) << endl;
 
-	cout << "Removing values so that 8 is min... " << endl;
+	cout << "Removing values so there is only one." << endl;
 
 	b.remove(0);
 	b.remove(0);
